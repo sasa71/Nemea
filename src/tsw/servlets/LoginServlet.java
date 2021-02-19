@@ -36,6 +36,7 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.UUID;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -87,11 +88,14 @@ public class LoginServlet extends HttpServlet {
 		cookie.setMaxAge(30 * 24 * 60 * 60); // 30 giorni
 		response.addCookie(cookie);
 
-		String dest = request.getHeader("referer");
+		/*String dest = request.getHeader("referer");
 		if (dest == null || dest.contains("/Login") || dest.trim().isEmpty()) {
 			dest = ".";
 		}
 		response.sendRedirect(dest);
+		*/
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/jsp/index.jsp");
+		requestDispatcher.forward(request, response);
 	}
 
 	/**

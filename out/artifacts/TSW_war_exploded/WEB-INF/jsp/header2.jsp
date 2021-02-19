@@ -10,11 +10,12 @@
     <script src="ricerca.js"></script>
 </head>
 <body>
-<header>
-            <nav>
-                <a href="."><img src="img/logo.png" width="60px" height="60px"></a>
-
-
+<nav>
+    <label>
+        <input type="checkbox">
+        <header>
+            <a href="."><img src="img/logo.png">NEMEA</a>
+        </header>
         <ul>
             <li>
                 <form action="Ricerca" method="get">
@@ -23,7 +24,6 @@
                 </form>
             </li>
             <li><a href=".">Home</a></li>
-            <li><a href="Struttura">Struttura</a></li>
             <li><a href="Negozio">Negozio</a></li>
             <li><a>Categorie</a>
                 <menu>
@@ -43,8 +43,8 @@
                             <menuitem>
                                 <card>
                                     <form action="Login" method="post">
-                                        <input type="text" name="username" placeholder="Username">
-                                        <input type="password" name="password" placeholder="Password">
+                                        <input type="text" name="username" placeholder="Username"><br>
+                                        <input type="password" name="password" placeholder="Password"><br>
                                         <input type="submit" value="Login">
                                     </form>
                                 </card>
@@ -79,4 +79,3 @@
         </ul>
     </label>
 </nav>
-        </header>
