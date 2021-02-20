@@ -8,6 +8,14 @@ public class Ordine {
     private int idprodotto;
     private int quantita;
 
+    public Ordine(int idutente, int idprodotto, int quantita) {
+        this.idutente = idutente;
+        this.idprodotto = idprodotto;
+        this.quantita = quantita;
+    }
+    public Ordine(){
+    }
+
     public int getId() {
         return id;
     }

@@ -22,6 +22,11 @@
 					<input type="hidden" name="setNum" value="0">
 					<input type="submit" value="Rimuovi">
 				</form>
+				<form  action="Ordine" method="POST">
+					<input type="hidden" name="idprodotto" value="${pq.prodotto.id}">
+					<input type="hidden" name="quantita" value="${pq.quantita}">
+					<input type="submit" value="Completa acquisto">
+				</form>
 			</div>
 		</c:forEach>
 		<c:if test="${empty carrello.prodotti}">
@@ -37,7 +42,10 @@
 		</div>
 	
 		<div col="1/3">
-			<form method="POST" action="Acquisto">
+			<form method="POST" action="Ordine">
+				<input type="hidden" name="idprodotto" value="${pq.prodotto.id}">
+				<input type="hidden" name="quantita" value="${pq.quantita}">
+				<input type="hidden" name="idutente" value="${utente.id}">
 				<input type="submit" value="Completa acquisto">
 			</form>
 		</div>
