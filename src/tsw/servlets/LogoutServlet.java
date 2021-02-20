@@ -34,6 +34,7 @@ package tsw.servlets;
 import java.io.IOException;
 import java.util.Arrays;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -72,12 +73,18 @@ public class LogoutServlet extends HttpServlet {
 			}
 		}
 
-		String dest = request.getHeader("referer");
+	/*	String dest = request.getHeader("referer");
 		if (dest == null || dest.contains("/Logout") || dest.trim().isEmpty()) {
 			dest = ".";
 		}
 		response.sendRedirect(dest);
+	 */
+
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/jsp/index.jsp");
+		requestDispatcher.forward(request, response);
 	}
+
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

@@ -50,6 +50,16 @@ CREATE TABLE `prodotto_categoria` (
   CONSTRAINT FOREIGN KEY (`idutente`) REFERENCES `utente` (`id`)
 );
 
+CREATE TABLE `ordine` (
+                          `idordine` int(11) NOT NULL AUTO_INCREMENT,
+                          `idprodotto` int(11) NOT NULL,
+                          `idutente` int(11) NOT NULL,
+                          `quantita` int(11) NOT NULL,
+                          PRIMARY KEY (`idordine`),
+                          CONSTRAINT FOREIGN KEY (`idprodotto`) REFERENCES `prodotto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+                          CONSTRAINT FOREIGN KEY (`idutente`) REFERENCES `utente` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 LOCK TABLES `utente` WRITE;
 INSERT INTO `utente` VALUES (1,'utente1',SHA1('password1'),'Utente 1','utente1@test.com',1),(2,'utente2',SHA1('password2'),'Utente 2','utente2@test.com',0),(3,'utente3',SHA1('password3'),'Utente 3','utente3@test.com',0);
 UNLOCK TABLES;
