@@ -48,6 +48,28 @@ public class OrdineDAO {
         }
     }
 
+    public List<Ordine> doRetrieveByUtente(int utente){
+
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con
+                    .prepareStatement("SELECT id,idprodotto,idutente,quantita FROM ordine WHERE utente=?");
+            ps.setInt(1, utente);
+            ArrayList<Ordine> ordini = new ArrayList<>();
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Ordine p = new Ordine();
+                p.setId(rs.getInt(1));
+                p.setIdprodotto(rs.getInt(2));
+                p.setIdutente(rs.getInt(3));
+                p.setQuantita(rs.getInt(4));
+                ordini.add(p);
+            }
+            return ordini;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void doSave(Ordine ordine) {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("INSERT INTO ordine (idprodotto,idutente,quantita) VALUES(?,?,?)",
@@ -92,5 +114,6 @@ public class OrdineDAO {
             throw new RuntimeException(e);
         }
     }
+
 
 }

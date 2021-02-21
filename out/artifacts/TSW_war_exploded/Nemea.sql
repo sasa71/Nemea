@@ -1,5 +1,6 @@
 -- username: root
 -- password: root
+DROP DATABASE IF EXISTS `Nemea`;
 CREATE DATABASE IF NOT EXISTS `Nemea`;
 USE `Nemea`;
 
@@ -48,6 +49,16 @@ CREATE TABLE `prodotto_categoria` (
   PRIMARY KEY (`id`),
   KEY (`idutente`),
   CONSTRAINT FOREIGN KEY (`idutente`) REFERENCES `utente` (`id`)
+);
+
+CREATE TABLE `ordine` (
+                          `idordine` int(11) NOT NULL AUTO_INCREMENT,
+                          `idprodotto` int(11) NOT NULL,
+                          `idutente` int(11) NOT NULL,
+                          `quantita` int(11) NOT NULL,
+                          PRIMARY KEY (`idordine`),
+                          CONSTRAINT FOREIGN KEY (`idprodotto`) REFERENCES `prodotto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+                          CONSTRAINT FOREIGN KEY (`idutente`) REFERENCES `utente` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 LOCK TABLES `utente` WRITE;

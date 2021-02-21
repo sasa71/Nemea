@@ -7,10 +7,14 @@
     <div>
         <center><h1>Acquisto effettuato con successo!</h1></center>
     </div>
-<div>
+<center><div>
     <form method="POST" action=".">
         <input type="submit" value="Torna alla home">
     </form>
+    <form method="POST" action="OrdiniFilter">
+        <input type="submit" value="Vedi i tuoi ordini">
+    </form>
 </div>
+</center>
 
 <%@include file="footer.html"%>

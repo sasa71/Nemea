@@ -39,18 +39,6 @@
                 <c:choose>
                     <c:when test="${utente == null}">
                         <a href="loginForm">Login</a>
-                        <!--		<menu>
-                        <menuitem>
-                        <card>
-                        <form action="Login" method="post">
-                        <input type="text" name="username" placeholder="Username"><br>
-                        <input type="password" name="password" placeholder="Password"><br>
-                        <input type="submit" value="Login">
-                        </form>
-                        </card>
-                        </menuitem>
-                        <menuitem><a href="RegistrazioneForm">Registrazione</a></menuitem>
-                        </menu> --!>
                     </c:when>
                     <c:otherwise>
                         <a>${utente.admin ? 'Admin' : 'Account'}</a>
@@ -58,13 +46,13 @@
                             <c:if test="${utente.admin}">
                                 <menuitem><a href="AdminCategoria">Aggiungi Categoria</a></menuitem>
                                 <menuitem><a href="AdminProdotto">Aggiungi Prodotto</a></menuitem>
-                                <menuitem><a href="Ordini">Ordini</a></menuitem>
+                                <menuitem><a href="OrdiniAdmin">Ordini</a></menuitem>
                                 <menuitem><a href="AdminUtenti">Utenti</a></menuitem>
                                 <hr style="margin:0px;">
                             </c:if>
                                 ${utente.nome}
                             <menuitem><a href="todo">Profilo</a></menuitem>
-                            <menuitem><a href="todo">I miei ordini</a></menuitem>
+                            <menuitem><a href="OrdiniUtente">I miei ordini</a></menuitem>
                             <menuitem>
                                 <card>
                                     <form action="Logout">

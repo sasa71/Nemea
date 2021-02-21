@@ -58,13 +58,13 @@
                             <c:if test="${utente.admin}">
                                 <menuitem><a href="AdminCategoria">Aggiungi Categoria</a></menuitem>
                                 <menuitem><a href="AdminProdotto">Aggiungi Prodotto</a></menuitem>
-                                <menuitem><a href="todo">Ordini</a></menuitem>
+                                <menuitem><a href="OrdiniAdmin">Ordini</a></menuitem>
                                 <menuitem><a href="AdminUtenti">Utenti</a></menuitem>
                                 <hr style="margin:0px;">
                             </c:if>
                                 ${utente.nome}
                             <menuitem><a href="todo">Profilo</a></menuitem>
-                            <menuitem><a href="todo">I miei ordini</a></menuitem>
+                            <menuitem><a href="OrdiniUtente">I miei ordini</a></menuitem>
                             <menuitem>
                                 <card>
                                     <form action="Logout">

@@ -1,5 +1,6 @@
 -- username: root
 -- password: root
+DROP DATABASE IF EXISTS `Nemea`;
 CREATE DATABASE IF NOT EXISTS `Nemea`;
 USE `Nemea`;
 
