@@ -25,7 +25,6 @@
 				<form action="Ordine" method="POST">
 					<input type="hidden" name="idprodotto" value="${pq.prodotto.id}">
 					<input type="hidden" name="quantita" value="${pq.quantita}">
-					<input type="hidden" name="idutente" value="${utente.id}">
 					<input type="submit" value="Completa acquisto">
 				</form>
 			</div>

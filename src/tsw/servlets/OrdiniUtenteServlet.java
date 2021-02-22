@@ -2,6 +2,7 @@ package tsw.servlets;
 
 import tsw.model.Ordine;
 import tsw.model.OrdineDAO;
+import tsw.model.Utente;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,10 +21,9 @@ public class OrdiniUtenteServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int idutente = Integer.parseInt(request.getParameter("idutente"));
-        List<Ordine> ordini =ordineDAO.doRetrieveByUtente(idutente);
+        Utente utente=(Utente)request.getSession().getAttribute("utente");
+        List<Ordine> ordini =ordineDAO.doRetrieveByUtente(utente.getId());
         request.setAttribute("ordini", ordini);
-
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/jsp/ordini.jsp");
         requestDispatcher.forward(request, response);
     }

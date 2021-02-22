@@ -27,8 +27,11 @@ public class OrdiniServlet extends HttpServlet{
                 throws ServletException, IOException {
             int idprodotto = Integer.parseInt(request.getParameter("idprodotto"));
             int quantita = Integer.parseInt(request.getParameter("quantita"));
-            int idutente = Integer.parseInt(request.getParameter("idutente"));
-            Ordine ordine =new Ordine(idutente,idprodotto,quantita);
+            Utente utente=(Utente)request.getSession().getAttribute("utente");
+            Ordine ordine =new Ordine();
+            ordine.setIdutente(utente.getId());
+            ordine.setIdprodotto(idprodotto);
+            ordine.setQuantita(quantita);
             ordineDAO.doSave(ordine);
             if (ordine == null) {
                 throw new MyServletException("Ordine non trovato.");

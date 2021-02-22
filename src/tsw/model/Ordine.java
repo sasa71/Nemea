@@ -13,11 +13,6 @@ public class Ordine {
     private Utente utente;
     private int tot;
 
-    public Ordine(int idutente, int idprodotto, int quantita) {
-        this.idutente = idutente;
-        this.idprodotto = idprodotto;
-        this.quantita = quantita;
-    }
     public Ordine(){
     }
 
@@ -83,6 +78,8 @@ public class Ordine {
     public Utente getUtente() {
         return utente;
     }
+
+
     public int getTot(){
         int prezzo=parseInt(getProdotto().getPrezzoEuro());
         tot=(getQuantita()*prezzo);

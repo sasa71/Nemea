@@ -8,8 +8,12 @@
     <h1>Ordini</h1>
 </section>
 
-
 <c:choose>
+<c:if test="${ordini.size() < 1}">
+    <h3> Nessun ordine effettuato</h3>
+</c:if>
+
+    <c:if test="${ordini.size() > 0}">
     <c:when test="${utente == null}">
     </c:when>
     <c:otherwise>
@@ -79,6 +83,8 @@
                 </table>
             </c:forEach>
             </section>
+        </c:if>
+</c:choose>
 
 
 <%@include file="footer.html"%>

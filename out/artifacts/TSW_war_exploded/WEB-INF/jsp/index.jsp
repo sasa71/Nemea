@@ -11,7 +11,6 @@
 	<a href="Struttura"><img src="img/pal.jpg" height="400" width="400"></a>
 		</div>
 	<div col="1">
-		<!--djnd-->
 		<a href="Negozio"><img src="img/neg.jpg"height="400" width="400"></a>	</div>
 </section>
 <%@include file="footer.html"%>
