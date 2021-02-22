@@ -45,7 +45,7 @@
 		<grid>
 			<c:forEach items="${prodotti}" var="prodotto">
 				<div col="1/3">
-					<a href="Prodotto?id=${prodotto.id}"><img src="img/prodott/${prodotto.id}.jpg"></a>
+					<a href="Prodotto?id=${prodotto.id}"><img src="img/prodott/${prodotto.images}"></a>
 				</div>
 				<div col="2/3">
 					<h3>

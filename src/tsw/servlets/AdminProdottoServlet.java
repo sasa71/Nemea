@@ -31,17 +31,21 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 package tsw.servlets;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.stream.Collectors;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import tsw.model.Categoria;
 import tsw.model.Prodotto;
@@ -52,6 +56,7 @@ import tsw.model.ProdottoDAO;
  *
  */
 @WebServlet("/AdminProdotto")
+@MultipartConfig
 public class AdminProdottoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final ProdottoDAO prodottoDAO = new ProdottoDAO();
@@ -74,12 +79,26 @@ public class AdminProdottoServlet extends HttpServlet {
 				String nome = request.getParameter("nome");
 				String descrizione = request.getParameter("descrizione");
 				String prezzoCent = request.getParameter("prezzoCent");
+				Part filePart = request.getPart("file");
 				if (nome != null && descrizione != null && prezzoCent != null) {
 					// modifica/aggiunta prodotto
 					prodotto = new Prodotto();
 					prodotto.setNome(nome);
 					prodotto.setDescrizione(descrizione);
 					prodotto.setPrezzoCent(Long.parseLong(prezzoCent));
+
+					if (filePart != null ) {
+						String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+						if (fileName != null && !fileName.equals("")) {
+							System.out.println("Nome file:" + fileName); //quando carichi una foto controlla che questo ti stampa il nome del
+							//file che hai caricato
+							filePart.write(getServletContext().getRealPath("") + "img" + File.separator + "prodott" + File.separator + fileName);
+							prodotto.setImages(fileName);
+						}else {
+							throw new MyServletException("Nessuna immagine selezionata");
+						}
+
+					}
 
 					String[] categorie = request.getParameterValues("categorie");
 					prodotto.setCategorie(categorie != null ? Arrays.stream(categorie).map(id -> {

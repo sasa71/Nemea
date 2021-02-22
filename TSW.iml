@@ -9,6 +9,7 @@
         <webroots>
           <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
+        <sourceRoots />
       </configuration>
     </facet>
   </component>
@@ -55,8 +56,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" exported="" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 9.0.31" level="application_server_libraries" />
-    <orderEntry type="library" exported="" name="javaee" level="project" />
+    <orderEntry type="library" name="javaee" level="project" />
   </component>
 </module>

@@ -19,14 +19,6 @@ public class NegozioServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private final ProdottoDAO prodottoDAO = new ProdottoDAO();
 
-    @Override
-    public void init() throws ServletException {
-        CategoriaDAO categoriaDAO = new CategoriaDAO();
-        List<Categoria> categorie = categoriaDAO.doRetrieveAll();
-        getServletContext().setAttribute("categorie", categorie);
-        super.init();
-    }
-
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
      *      response)

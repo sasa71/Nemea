@@ -39,18 +39,6 @@
                 <c:choose>
                     <c:when test="${utente == null}">
                         <a href="loginForm">Login</a>
-                        <!--		<menu>
-                        <menuitem>
-                        <card>
-                        <form action="Login" method="post">
-                        <input type="text" name="username" placeholder="Username"><br>
-                        <input type="password" name="password" placeholder="Password"><br>
-                        <input type="submit" value="Login">
-                        </form>
-                        </card>
-                        </menuitem>
-                        <menuitem><a href="RegistrazioneForm">Registrazione</a></menuitem>
-                        </menu> --!>
                     </c:when>
                     <c:otherwise>
                         <a>${utente.admin ? 'Admin' : 'Account'}</a>

@@ -54,6 +54,13 @@ import tsw.model.ProdottoDAO;
 public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	public void init() throws ServletException {
+		CategoriaDAO categoriaDAO = new CategoriaDAO();
+		List<Categoria> categorie = categoriaDAO.doRetrieveAll();
+		getServletContext().setAttribute("categorie", categorie);
+		super.init();
+	}
+
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse

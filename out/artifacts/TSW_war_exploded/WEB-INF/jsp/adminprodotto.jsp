@@ -9,7 +9,7 @@
 		<h1>${operazione} prodotto</h1>
 		<h5>${notifica}</h5>
 		<c:if test="${param.rimuovi == null}">
-			<form action="AdminProdotto" method="post">
+			<form action="AdminProdotto" method="post" enctype="multipart/form-data">
 				<input type="hidden" name="id" value="${prodotto.id}">
 				<label>Categorie</label>
 				<c:forEach items="${categorie}" var="categoria">
@@ -22,7 +22,7 @@
 				<label>Prezzo (cent):</label>
 				<input type="number" name="prezzoCent" value="${prodotto.prezzoCent}">
 				<label>Immagine</label>
-				<h5>TODO UPLOAD</h5>
+				<input type="file" name="file">
 				<input type="submit" value="${operazione}">
 				<c:if test="${prodotto != null}">
 					<input type="submit" name="rimuovi" value="Rimuovi">

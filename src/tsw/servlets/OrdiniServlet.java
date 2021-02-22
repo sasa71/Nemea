@@ -16,6 +16,8 @@ import java.util.List;
 
 @WebServlet("/Ordine")
 public class OrdiniServlet extends HttpServlet{
+
+
         private static final long serialVersionUID = 1L;
         private final OrdineDAO ordineDAO = new OrdineDAO();
 
@@ -25,6 +27,8 @@ public class OrdiniServlet extends HttpServlet{
          */
         protected void doGet(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
+            Carrello carrello = (Carrello) request.getSession().getAttribute("carrello");
+
             int idprodotto = Integer.parseInt(request.getParameter("idprodotto"));
             int quantita = Integer.parseInt(request.getParameter("quantita"));
             Utente utente=(Utente)request.getSession().getAttribute("utente");
@@ -33,6 +37,7 @@ public class OrdiniServlet extends HttpServlet{
             ordine.setIdprodotto(idprodotto);
             ordine.setQuantita(quantita);
             ordineDAO.doSave(ordine);
+            carrello.getProdotti().clear();
             if (ordine == null) {
                 throw new MyServletException("Ordine non trovato.");
             }

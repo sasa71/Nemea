@@ -8,7 +8,7 @@
 		<grid>
 	
 			<div col="1/3">
-				<img src="img/prodott/${prodotto.id}.jpg">
+				<img src="img/prodott/${prodotto.images}">
 			</div>
 		
 			<div col="1/3">
@@ -18,7 +18,7 @@
 		
 			<div col="1/3">
 				<c:if test="${utente.admin}">
-					<form action="AdminProdotto" method="post">
+					<form action="AdminProdotto" method="post" enctype="multipart/form-data">
 						<input type="hidden" name="id" value="${prodotto.id}">
 						<input type="submit" value="Modifica">
 						<input type="submit" name="rimuovi" value="Rimuovi">

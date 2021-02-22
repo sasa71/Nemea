@@ -156,4 +156,32 @@ public class UtenteDAO {
 			throw new RuntimeException(e);
 		}
 	}
+
+	public void doUpdate(Utente utente) {
+		try (Connection con = ConPool.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("UPDATE utente SET username=?, nome=?, email=?, admin=? WHERE id=?");
+			ps.setString(1, utente.getUsername());
+			ps.setString(2, utente.getNome());
+			ps.setString(3, utente.getEmail());
+			ps.setBoolean(4, utente.isAdmin());
+			ps.setInt(5, utente.getId());
+			if (ps.executeUpdate() != 1) {
+				throw new RuntimeException("UPDATE error.");
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public void doDelete(int id) {
+		try (Connection con = ConPool.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("DELETE FROM utente WHERE id=?");
+			ps.setInt(1, id);
+			if (ps.executeUpdate() != 1) {
+				throw new RuntimeException("DELETE error.");
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

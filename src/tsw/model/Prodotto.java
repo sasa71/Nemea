@@ -42,6 +42,7 @@ public class Prodotto {
 	private String nome;
 	private String descrizione;
 	private long prezzoCent;
+	private String images;
 	private List<Categoria> categorie;
 
 	public int getId() {
@@ -78,6 +79,14 @@ public class Prodotto {
 
 	public String getPrezzoEuro() {
 		return String.format("%.2f", prezzoCent / 100.);
+	}
+
+	public String getImages() {
+		return images;
+	}
+
+	public void setImages(String images) {
+		this.images = images;
 	}
 
 	public List<Categoria> getCategorie() {

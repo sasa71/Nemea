@@ -17,7 +17,7 @@
                 <h3>
                     <a href="Prodotto?id=<c:out value="${prodotto.id}"/>"><c:out value="${prodotto.nome}" /></a>
                 </h3>
-                <a href="Prodotto?id=<c:out value="${prodotto.id}"/>"><img src="img/prodott/<c:out value="${prodotto.id}"/>.jpg"></a>
+                <a href="Prodotto?id=<c:out value="${prodotto.id}"/>"><img src="img/prodott/<c:out value="${prodotto.images}"/>"></a>
                 <h4>Prezzo: <c:out value="${prodotto.prezzoEuro}" /> &euro;</h4>
             </div>
         </c:forEach>

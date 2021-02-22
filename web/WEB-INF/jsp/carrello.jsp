@@ -9,7 +9,7 @@
 		<grid>
 		<c:forEach items="${carrello.prodotti}" var="pq">
 			<div col="1/3">
-				<a href="#"> <img src="img/prodott/${pq.prodotto.id}.jpg"></a>
+				<a href="#"> <img src="img/prodott/${pq.prodotto.images}"></a>
 			</div>
 			<div col="2/3">
 				<h3>

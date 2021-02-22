@@ -28,7 +28,7 @@
 						<td>${utente.admin ? "Si" : "No"}</td>
 						<td><a href="todo?id=${utente.id}" btn primary>Dettagli</a></td>
 						<td>
-							<form action="todo" method="post">
+							<form action="ModificaRimuovi" method="post">
 								<input type="hidden" name="id" value="${utente.id}">
 								<input type="submit" value="Modifica">
 								<input type="submit" name="rimuovi" value="Rimuovi">

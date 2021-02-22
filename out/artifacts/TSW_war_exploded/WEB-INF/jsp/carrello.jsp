@@ -9,7 +9,7 @@
 		<grid>
 		<c:forEach items="${carrello.prodotti}" var="pq">
 			<div col="1/3">
-				<a href="#"> <img src="img/prodott/${pq.prodotto.id}.jpg"></a>
+				<a href="#"> <img src="img/prodott/${pq.prodotto.images}"></a>
 			</div>
 			<div col="2/3">
 				<h3>
@@ -25,7 +25,6 @@
 				<form action="Ordine" method="POST">
 					<input type="hidden" name="idprodotto" value="${pq.prodotto.id}">
 					<input type="hidden" name="quantita" value="${pq.quantita}">
-					<input type="hidden" name="idutente" value="${utente.id}">
 					<input type="submit" value="Completa acquisto">
 				</form>
 			</div>
