@@ -16,7 +16,7 @@
 			<input type="password" name="passwordConferma" oninput="validaPassword()">
 			<label>Nome (solo lettere e spazi)</label>
 			<input type="text" name="nome" oninput="validaNome()">
-			<label>Email (<b>TODO:</b> diversa da quella di utenti esistenti)</label>
+			<label>Email</label>
 			<input type="text" name="email" oninput="validaEmail()">
 			<input id="registrami" type="submit" value="Registrami" disabled><span id="registramimessaggio"></span>
 		</form>

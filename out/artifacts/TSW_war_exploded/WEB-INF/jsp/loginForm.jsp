@@ -17,6 +17,11 @@
         <input type="password" name="password" placeholder="Password"><br>
         <input type="submit" value="Login">
     </form>
+
+    <form action="RegistrazioneForm" method="post">
+        <input type="submit" value="Registrati qui">
+    </form>
+   
 </section>
 <%@include file="footer.html"%>
 
