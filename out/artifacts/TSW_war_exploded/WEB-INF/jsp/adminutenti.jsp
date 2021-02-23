@@ -29,7 +29,10 @@
 
 							<form action="ModificaRimuovi" method="post">
 								<input type="hidden" name="id" value="${utente.id}">
-								<input type="submit" name ="modifica" value="Modifica">
+								<input type="hidden" name="username" value="${utente.username}">
+								<input type="hidden" name="nome" value="${utente.nome}">
+								<input type="hidden" name="email" value="${utente.email}">
+								<input type="submit" name ="modifica1" value="Modifica">
 								<input type="submit" name="rimuovi" value="Rimuovi">
 							</form>
 						</td>

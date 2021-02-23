@@ -10,13 +10,13 @@
 <h5>${notifica}</h5>
 <c:if test="${param.rimuovi == null}">
     <form action="ModificaRimuovi" method="post">
-        <input type="hidden" name="id" value="${utente.id}">
+        <input type="hidden" name="id" value="${utenti.id}">
         <label>Username</label>
-        <input type="text" name="username" value="${utente.username}" oninput="validaUsername()">
+        <input type="text" name="username" value="${utenti.username}" oninput="validaUsername()">
         <label>Nome</label>
-        <input type="nome" name="nome" value="${utente.nome}" oninput="validaNome()">
+        <input type="nome" name="nome" value="${utenti.nome}" oninput="validaNome()">
         <label>Email</label>
-        <input type="email" name="email" value="${utente.email}" oninput="validaEmail()">
+        <input type="email" name="email" value="${utenti.email}" oninput="validaEmail()">
         <input type="submit" name ="modifica" value="Modifica">
     </form>
 </c:if>

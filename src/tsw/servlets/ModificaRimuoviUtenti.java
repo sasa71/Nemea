@@ -34,7 +34,7 @@ public class ModificaRimuoviUtenti extends HttpServlet {
                 utenteDAO.doDelete(Integer.parseInt(idstr));
                 request.setAttribute("notifica", "Utente rimosso con successo.");
 
-            } else {
+            } else if (request.getParameter("modifica") != null){
                 String nome = request.getParameter("nome");
                 String username = request.getParameter("username");
                 String email = request.getParameter("email");
@@ -50,11 +50,27 @@ public class ModificaRimuoviUtenti extends HttpServlet {
                         request.setAttribute("notifica", "Utente modificato con successo.");
 
 
-                    request.setAttribute("utente", utente);
+                    request.setAttribute("utenti", utente);
 
 
                 }
+
+            } else {
+                String nome = request.getParameter("nome");
+                String username = request.getParameter("username");
+                String email = request.getParameter("email");
+
+                if (nome != null && username != null && email != null) {
+                    Utente utente = new Utente();
+                    utente.setNome(nome);
+                    utente.setUsername(username);
+                    utente.setEmail(email);
+
+                    utente.setId(Integer.parseInt(idstr));
+                    request.setAttribute("utenti", utente);
+                }
             }
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/jsp/modificautente.jsp");
             requestDispatcher.forward(request, response);
 

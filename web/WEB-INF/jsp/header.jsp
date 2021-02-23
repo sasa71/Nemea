@@ -37,7 +37,7 @@
 								<hr style="margin:0px;">
 							</c:if>
 								${utente.nome}
-							<menuitem><a href="todo">Profilo</a></menuitem>
+							<menuitem><a href="AreaUtente">Profilo</a></menuitem>
 							<menuitem><a href="OrdiniUtente">I miei ordini</a></menuitem>
 							<menuitem>
 								<card>
