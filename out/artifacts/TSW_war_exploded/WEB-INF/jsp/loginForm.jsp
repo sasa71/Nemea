@@ -21,7 +21,7 @@
     <form action="RegistrazioneForm" method="post">
         <input type="submit" value="Registrati qui">
     </form>
-   
+
 </section>
 <%@include file="footer.html"%>
 

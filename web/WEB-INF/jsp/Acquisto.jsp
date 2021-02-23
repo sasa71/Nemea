@@ -11,10 +11,6 @@
     <form method="POST" action=".">
         <input type="submit" value="Torna alla home">
     </form>
-    <form method="POST" action="OrdiniUtente">
-        <input type="hidden" name="idutente" value="${utente.id}">
-        <input type="submit" value="Vedi i tuoi ordini">
-    </form>
 </div>
 </center>
 

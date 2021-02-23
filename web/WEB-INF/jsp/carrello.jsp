@@ -22,9 +22,8 @@
 					<input type="hidden" name="setNum" value="0">
 					<input type="submit" value="Rimuovi">
 				</form>
-				<form action="Ordine" method="POST">
-					<input type="hidden" name="idprodotto" value="${pq.prodotto.id}">
-					<input type="hidden" name="quantita" value="${pq.quantita}">
+				<form action="Acquisto" method="POST">
+					<input type="hidden" name="prodId" value="${pq.prodotto.id}">
 					<input type="submit" value="Completa acquisto">
 				</form>
 			</div>
