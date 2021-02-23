@@ -32,6 +32,11 @@ public class OrdiniServlet extends HttpServlet{
             int idprodotto = Integer.parseInt(request.getParameter("idprodotto"));
             int quantita = Integer.parseInt(request.getParameter("quantita"));
             Utente utente=(Utente)request.getSession().getAttribute("utente");
+
+            if(utente == null){
+                throw new MyServletException("utente non loggato");
+            }
+
             Ordine ordine =new Ordine();
             ordine.setIdutente(utente.getId());
             ordine.setIdprodotto(idprodotto);
